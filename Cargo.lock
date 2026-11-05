@@ -712,6 +712,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "hash32"
+version = "0.3.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "47d60b12902ba28e2730cd37e95b8c9223af2808df9e902d4df49588d1470606"
+dependencies = [
+ "byteorder",
+]
+
+[[package]]
 name = "hashbrown"
 version = "0.12.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -731,6 +740,17 @@ name = "hashbrown"
 version = "0.15.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bf151400ff0baff5465007dd2f3e717f3fe502074ca563069ce3a6629d07b289"
+
+[[package]]
+name = "heapless"
+version = "0.9.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "25ba4bd83f9415b58b4ed8dc5714c76e626a105be4646c02630ad730ad3b5aa4"
+dependencies = [
+ "hash32",
+ "stable_deref_trait",
+ "zeroize",
+]
 
 [[package]]
 name = "hex"
@@ -1676,6 +1696,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "stable_deref_trait"
+version = "1.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6ce2be8dc25455e1f91df71bfa12ad37d7af1092ae736f3a6cd0e37bc7810596"
+
+[[package]]
 name = "static_assertions"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1694,19 +1720,21 @@ dependencies = [
 
 [[package]]
 name = "stellar-strkey"
-version = "0.0.13"
+version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ee1832fb50c651ad10f734aaf5d31ca5acdfb197a6ecda64d93fcdb8885af913"
+checksum = "5038ed2bf4e11842210d118f65791d8ca4747622daddd222338b3d06b6051bc1"
 dependencies = [
- "crate-git-revision 0.0.6",
+ "crate-git-revision 0.0.9",
  "data-encoding",
+ "heapless",
+ "zeroize",
 ]
 
 [[package]]
 name = "stellar-xdr"
-version = "28.0.0"
+version = "30.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f93d09ff8b9f919b084f664003c4c546ac66a76affd5429460dbe29f4b326f8e"
+checksum = "56f2fb2008b42fc746c0f6b46e375600068dd91f07748e9f1737c6341a2255f2"
 dependencies = [
  "arbitrary",
  "base64",
@@ -1718,7 +1746,7 @@ dependencies = [
  "serde",
  "serde_with",
  "sha2",
- "stellar-strkey 0.0.13",
+ "stellar-strkey 1.0.0",
 ]
 
 [[package]]
