@@ -212,7 +212,7 @@ declare_host_object_type!(xdr::ScAddress, AddressObject, Address);
 
 impl MemHostObjectType for xdr::ScSymbol {
     fn try_from_bytes(host: &Host, bytes: Vec<u8>) -> Result<Self, HostError> {
-        if bytes.len() as u64 > SCSYMBOL_LIMIT {
+        if bytes.len() as u64 > SCSYMBOL_LIMIT as u64 {
             return Err(host.err(
                 ScErrorType::Value,
                 ScErrorCode::InvalidInput,
